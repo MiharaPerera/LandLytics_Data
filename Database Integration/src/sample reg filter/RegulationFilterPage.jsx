@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./RegulationFilter.module.css";
-import FilterDropdown from "./FilterDropdown";
-import Sidebar from "../CommonComponents/Sidebar";
-import TopBar from "./TopBar";
 
-const App = () => {
+const RegulationFilterPage = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [subCategories, setSubCategories] = useState([]);
