@@ -1,0 +1,60 @@
+.mainColumn {
+  padding-top: 150px;
+  flex-direction: column;
+  width: calc(100% - 350px);
+  margin-left: 350px; /* Match the sidebar width */
+  display: flex;
+}
+
+.contentContainer {
+  flex-direction: column;
+  display: flex;
+}
+
+.mainSection {
+  flex-direction: column;
+  width: 100%;
+  max-width: 1079px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+  display: flex;
+}
+
+.subtitle {
+  color: #322e29;
+  font-family: "Tiro Devanagari Hindi", serif;
+  font-size: 36px;
+  font-style: italic;
+  font-weight: 400;
+  margin: 0;
+}
+
+@media (width <= 991px) {
+  .mainColumn {
+    width: calc(100% - 350px);
+    margin-left: 350px;
+  }
+
+  .mainSection {
+    margin-top: 30px;
+    width: calc(100% - 350px);
+    margin-left: 350px;
+  }
+  
+  .subtitle {
+    font-size: 32px;
+  }
+}
+
+@media (width <= 640px) {
+  .mainColumn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 120px; /* For mobile sidebar at top */
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 28px;
+  }
+}

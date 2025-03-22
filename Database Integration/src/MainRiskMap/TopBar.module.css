@@ -1,0 +1,32 @@
+.topBar {
+    background-color: #faf9f8;
+    height: 116px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    width: calc(100% - 350px);
+    top: 0;
+    left: 350px;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.title {
+    padding-left: 280px;
+    color: #322e29;
+    align-self: stretch;
+    font-family:"Montaga", serif;
+    font-size: 48px;
+    font-weight: 400;
+}
+
+.img3 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 75px;
+    justify-self: flex-end;
+    padding-right: 40px;
+}
