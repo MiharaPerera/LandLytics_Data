@@ -4,9 +4,9 @@ import psycopg2
 FlaskApp = Flask(__name__)
 
 DB_CONFIG = {
-    'dbname': 'landlytics_db',
+    'dbname': 'general_regulations_keywords',
     'user': 'your_username',
-    'password': 'your_password',
+    'password': 'sgdp25',
     'host': 'localhost',
     'port': 5432
 }
