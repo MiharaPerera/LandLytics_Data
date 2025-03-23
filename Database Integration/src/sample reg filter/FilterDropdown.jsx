@@ -1,49 +1,54 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./RegulationFilter.module.css";
 
-function FilterDropdown({ placeholderText, iconSrc, items, onChange }) {
+const FilterDropdown = ({ placeholderText, items = [], onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
-  const dropdownRef = useRef(null);
+  const [selectedItem, setSelectedItem] = useState("");
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleItemClick = (item) => {
+  const handleSelect = (item) => {
     setSelectedItem(item);
-    setIsOpen(false);
-    onChange(item);
+    onChange(item); // Send selected item back to parent component
+    setIsOpen(false); // Close dropdown after selection
   };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
-    <div>
-      <button className={styles.header} onClick={toggleDropdown}>
-        <span className={styles.exampleText}>{selectedItem || placeholderText}</span>
-        <img src="/assets/downArrow.png" alt="Dropdown arrow" className={styles.img3} />
-      </button>
-      {isOpen && (
-        <div className={`${styles.itemsFrame} ${styles.itemsFrameOpen}`}>
-          {items.map((item, index) => (
-            <div key={index} className={styles.dropdownItem} onClick={() => handleItemClick(item)}>{item}</div>
-          ))}
-        </div>
-      )}
+    <div className={styles.dropdownBox}>
+      {/* Dropdown Header */}
+      <div className={styles.header} onClick={() => setIsOpen(!isOpen)}>
+        <span className={styles.exampleText}>
+          {selectedItem || placeholderText}
+        </span>
+        <img
+          src={isOpen ? "/icons/up-arrow.svg" : "/icons/down-arrow.svg"}
+          alt="Toggle Dropdown"
+          className={styles.img3}
+        />
+      </div>
+
+      {/* Dropdown Options */}
+      <div
+        className={`${styles.itemsFrame} ${
+          isOpen ? styles.itemsFrameOpen : ""
+        }`}
+      >
+        {items.length === 0 ? (
+          <div className={styles.dropdownItem}>No options available</div>
+        ) : (
+          items.map((item) => (
+            <div
+              key={item}
+              className={`${styles.dropdownItem} ${
+                item === selectedItem ? styles.activeItem : ""
+              }`}
+              onClick={() => handleSelect(item)}
+            >
+              {item}
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
-}
+};
 
 export default FilterDropdown;
