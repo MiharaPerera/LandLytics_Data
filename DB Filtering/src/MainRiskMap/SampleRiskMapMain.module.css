@@ -1,0 +1,22 @@
+.riskMapContainer {
+  background-color: #e1dfdd;
+  min-height: 100vh;
+  display: flex;
+}
+
+.contentWrapper {
+  width: 100%;
+  display: flex;
+}
+
+@media (width <= 991px) {
+  .contentWrapper {
+    flex-direction: row;
+  }
+}
+
+@media (width <= 640px) {
+  .contentWrapper {
+    flex-direction: column;
+  }
+}
