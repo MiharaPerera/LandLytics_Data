@@ -7,7 +7,7 @@ const FilterDropdown = ({ placeholderText, items = [], onChange }) => {
 
   const handleSelect = (item) => {
     setSelectedItem(item);
-    onChange(item); // Send selected item back to parent component
+    onChange(item); // Sends selected item back to parent component
     setIsOpen(false); // Close dropdown after selection
   };
 
