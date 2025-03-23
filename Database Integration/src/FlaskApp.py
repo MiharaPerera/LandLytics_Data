@@ -7,10 +7,10 @@ CORS(FlaskApp)  # Allows React frontend to connect without CORS issues
 
 # Database Configuration
 DB_CONFIG = {
-    'dbname': 'landlytics_db',
+    'dbname': 'general_regulations_keywords',
     'user': 'your_username',
-    'password': 'your_password',
-    'host': 'localhost',  
+    'password': 'sgdp25',
+    'host': 'localhost',
     'port': 5432
 }
 
