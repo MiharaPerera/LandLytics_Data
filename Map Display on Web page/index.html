@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
+        <link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css">
+        
+        <style>
+            html, body, #map {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+        </style>
+        <title>Leaflet Map</title>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/L.Control.Layers.Tree.min.js"></script>
+        <script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet.wms.js"></script>
+        <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+        <script>
+            var map = L.map('map', {
+                zoomControl: true,
+                maxZoom: 40,
+                minZoom: 3
+            }).setView([7.8731, 80.7718], 8);
+
+            var hash = new L.Hash(map);
+            map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+
+            var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            });
+            
+            var googleHybridLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+                attribution: '© Google',
+                maxZoom: 20
+            });
+
+            var esriWorldTopoLayer = L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+                attribution: '© ESRI',
+                maxZoom: 20
+            });
+            
+            var copernicusLayer = L.tileLayer.wms("https://view.eumetsat.int/geoserver/wms", {
+                layers: "copernicus:daily_sentinel3ab_olci_l2_chl_fullres",
+                format: "image/png",
+                transparent: true,
+                opacity: 1
+            });
+            
+            var baseLayers = {
+                "OSM Standard": osmLayer,
+                "Google Satellite Hybrid": googleHybridLayer,
+                "ESRI World Topo": esriWorldTopoLayer
+            };
+            
+            var overlayLayers = {
+                "Copernicus Sentinel-3": copernicusLayer
+            };
+            
+            L.control.layers(baseLayers, overlayLayers).addTo(map);
+            osmLayer.addTo(map);
+            L.control.locate({ locateOptions: { maxZoom: 18 } }).addTo(map);
+
+            // Feature group to store drawn items
+            var drawnItems = new L.FeatureGroup();
+            map.addLayer(drawnItems);
+
+            // Draw control options
+            var drawControl = new L.Control.Draw({
+                draw: {
+                    polygon: true,
+                    polyline: false,
+                    rectangle: false,
+                    circle: false,
+                    marker: false,
+                    circlemarker: false
+                },
+                edit: {
+                    featureGroup: drawnItems
+                }
+            });
+            map.addControl(drawControl);
+
+            // Event listener for when a polygon is drawn
+            map.on('draw:created', function (e) {
+                var layer = e.layer;
+                drawnItems.addLayer(layer);
+                console.log('Polygon coordinates:', layer.getLatLngs());
+            });
+        </script>
+    </body>
+</html>

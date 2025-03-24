@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # LandLytics Data Repository
 
 This repository contains the data and scripts used for the LandLytics project. It provides the foundational datasets and data processing scripts necessary for land evaluation, risk assessment, and property plan analysis.
@@ -14,14 +15,6 @@ To manage raw and processed datasets required for:
 - Data extraction from government websites and APIs (e.g., UDA, NBRO).
 - Processing geospatial data for risk analysis.
 - Maintaining a structured database for regulation and risk-related insights.
-
-## **Getting Started**
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-org/landlytics-data.git
-<<<<<<< HEAD
-=======
-
 
 
 # LandLytics_Documentation
@@ -45,3 +38,32 @@ To manage raw and processed datasets required for:
 
 # LandLytics_Backend
  Contains server-side code for APIs, database management, and logic for analyzing building plans and land optimization.
+
+   git clone https://github.com/your-org/landlytics-frontend.git
+>>>>>>> repo4/main
+
+
+# LandLytics Frontend Repository
+
+This repository contains the code for the frontend of the LandLytics application, enabling user interactions and visualizing data for land evaluation and risk assessment.
+
+## **Purpose**
+To provide a user-friendly interface for:
+- Viewing filtered regulations.
+- Exploring environmental risk reports.
+- Annotating property plans.
+
+## **Features**
+- Interactive maps for land location input and risk visualization.
+- Data visualizations for reports.
+- User-friendly property plan annotation viewer.
+>>>>>>> repo4/main
+
+## **Getting Started**
+1. **Clone the repository**:
+   ```bash
+<<<<<<< HEAD
+   git clone https://github.com/your-org/landlytics-data.git
+<<<<<<< HEAD
+
+
