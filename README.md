@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # LandLytics Data Repository
 
 This repository contains the data and scripts used for the LandLytics project. It provides the foundational datasets and data processing scripts necessary for land evaluation, risk assessment, and property plan analysis.
@@ -42,4 +43,5 @@ To manage raw and processed datasets required for:
 3. Submit changes via a pull request.
 
 
->>>>>>> 04c7d8e867e7c318a62f86aa5a7a112c171c1678
+# LandLytics_Backend
+ Contains server-side code for APIs, database management, and logic for analyzing building plans and land optimization.

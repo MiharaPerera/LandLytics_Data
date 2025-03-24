@@ -1,0 +1,17 @@
+.mapContainer {
+  margin-top: 75px;
+  margin-bottom: 75px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.mapFrame {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mapImage {
+  aspect-ratio: 2.05;
+  object-fit: cover;
+}

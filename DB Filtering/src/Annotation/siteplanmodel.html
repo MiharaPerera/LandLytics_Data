@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Plan Annotation</title>
+
+    <!-- Import Gradio Web Component -->
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.21.0/gradio.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f2ee;
+            color: #2b221c;
+            margin: 0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        gradio-app {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            border: none;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Upload Site Plan for Annotation</h1>
+    <p>Submit an image, and the model will annotate it automatically.</p>
+
+    <!-- Embed Hugging Face Space -->
+    <gradio-app src="https://sanali-site-plan-annotation.hf.space"></gradio-app>
+
+</body>
+</html>
