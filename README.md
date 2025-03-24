@@ -18,3 +18,28 @@ To manage raw and processed datasets required for:
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/your-org/landlytics-data.git
+<<<<<<< HEAD
+=======
+
+
+
+# LandLytics_Documentation
+
+## **Contents**
+- **Project Overview**: Background, goals, and scope.
+- **System Architecture**: Diagrams illustrating backend, frontend, and data workflows.
+- **API Documentation**: Usage details for internal and external APIs.
+- **User Guides**: Instructions for using the LandLytics platform.
+
+## **Getting Started**
+1. Navigate to the relevant folder for your documentation needs.
+2. For API documentation, open `/API-docs/api_overview.md`.
+3. For system architecture, view `/diagrams/architecture-diagram.png`.
+
+## **Contributing**
+1. Add new documentation to the appropriate folder.
+2. Use markdown for text files and standard formats for diagrams (e.g., PNG, SVG).
+3. Submit changes via a pull request.
+
+
+>>>>>>> 04c7d8e867e7c318a62f86aa5a7a112c171c1678
