@@ -21,13 +21,13 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        working-directory: ./FrontEnd
+        working-directory: ./frontEnd
         run: npm install
 
       - name: Build the frontend
-        working-directory: ./FrontEnd
+        working-directory: ./frontEnd
         run: npm run build
 
       - name: Run tests
-        working-directory: ./FrontEnd
+        working-directory: ./frontEnd
         run: npm test -- --watchAll=false
