@@ -29,5 +29,5 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        working-directory: ./frontend
+        working-directory: ./FrontEnd
         run: npm test -- --watchAll=false
